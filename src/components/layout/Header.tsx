@@ -15,17 +15,18 @@ export default function Header() {
 
   // Handle escape key to close menu
   useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setMobileMenuOpen(false);
     };
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    } else {
-      document.body.style.overflow = '';
-    }
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [mobileMenuOpen]);
@@ -33,7 +34,8 @@ export default function Header() {
   const closeMenu = () => setMobileMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-warm-gray transition-all">
+    <>
+      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-warm-gray transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
@@ -92,6 +94,7 @@ export default function Header() {
             className="lg:hidden p-2 text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -99,41 +102,77 @@ export default function Header() {
         </div>
       </div>
 
+      </header>
+
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 z-40 bg-white/98 flex flex-col border-b border-warm-gray px-6 py-8 overflow-y-auto">
-          <nav className="flex flex-col space-y-5" aria-label="Mobile Navigation">
-            {mainNav.map((item) => {
-              const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={closeMenu}
-                  className={cn(
-                    'text-lg font-medium transition-colors py-2 border-b border-warm-gray/40',
-                    isActive ? 'text-navy font-bold' : 'text-steel'
-                  )}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+        <div
+          id="mobile-navigation"
+          className="fixed inset-0 z-[60] overflow-y-auto overscroll-contain bg-white text-navy lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+        >
+          <div className="flex min-h-[100dvh] flex-col">
+            <div className="flex h-20 shrink-0 items-center justify-between border-b border-warm-gray px-4 sm:px-6">
+              <Link
+                href="/"
+                onClick={closeMenu}
+                className="flex items-center py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                aria-label="Vihani Transoceanic Home"
+              >
+                <Image
+                  src={assets.logo.src}
+                  alt={assets.logo.alt}
+                  width={assets.logo.width}
+                  height={assets.logo.height}
+                  className="h-12 w-auto object-contain"
+                />
+              </Link>
+              <button
+                type="button"
+                onClick={closeMenu}
+                className="rounded-md p-2 text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                aria-label="Close navigation menu"
+                aria-controls="mobile-navigation"
+              >
+                <X className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
 
-          <div className="mt-8 pt-4">
-            <Link
-              href="/contact"
-              onClick={closeMenu}
-              className="w-full flex items-center justify-center py-3.5 px-6 rounded-md bg-navy text-white font-medium text-base hover:bg-navy-light transition-colors"
-            >
-              Request a Quote
-              <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" />
-            </Link>
+            <nav className="flex flex-col px-6 py-6 sm:px-8" aria-label="Mobile Navigation">
+              <div className="flex flex-col">
+                {mainNav.map((item) => {
+                  const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={closeMenu}
+                      className={cn(
+                        'border-b border-warm-gray/40 py-3.5 text-lg font-medium transition-colors hover:text-navy',
+                        isActive ? 'font-bold text-navy' : 'text-steel'
+                      )}
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+
+              <Link
+                href="/contact"
+                onClick={closeMenu}
+                className="mt-8 flex w-full items-center justify-center rounded-md bg-navy px-6 py-3.5 text-base font-medium text-white transition-colors hover:bg-navy-light"
+              >
+                Request a Quote
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Link>
+            </nav>
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
