@@ -5,7 +5,6 @@ import { assets } from '@/data/assets';
 import Container from '@/components/ui/Container';
 import EditorialIntro from '@/components/sections/EditorialIntro';
 import SectionHeading from '@/components/ui/SectionHeading';
-import CTASection from '@/components/sections/CTASection';
 import { ShieldCheck, Truck, Cog, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -26,8 +25,8 @@ export default function AboutPage() {
       {/* Main Content */}
       <section className="py-20 bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7 space-y-6 text-steel leading-relaxed text-base sm:text-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start" data-reveal-group>
+            <div className="lg:col-span-7 space-y-6 text-steel leading-relaxed text-base sm:text-lg" data-reveal-item>
               <p>
                 <strong className="text-navy">{company.companyName}</strong> is an industrial packaging provider focused on polypropylene woven products, flexible intermediate bulk containers (FIBC), and protective technical textiles.
               </p>
@@ -39,7 +38,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5" data-reveal-item>
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-warm-gray mb-6">
                 <Image
                   src={assets.company.src}
@@ -90,8 +89,8 @@ export default function AboutPage() {
             subtitle="How we manage technical packaging requirements from design to final destination."
           />
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg border border-warm-gray">
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8" data-reveal-group>
+            <div className="bg-white p-8 rounded-lg border border-warm-gray" data-reveal-item>
               <div className="w-12 h-12 bg-ivory rounded-md flex items-center justify-center text-navy mb-5 border border-warm-gray">
                 <Cog className="w-6 h-6" />
               </div>
@@ -101,7 +100,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-warm-gray">
+            <div className="bg-white p-8 rounded-lg border border-warm-gray" data-reveal-item>
               <div className="w-12 h-12 bg-ivory rounded-md flex items-center justify-center text-navy mb-5 border border-warm-gray">
                 <ShieldCheck className="w-6 h-6" />
               </div>
@@ -111,7 +110,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-lg border border-warm-gray">
+            <div className="bg-white p-8 rounded-lg border border-warm-gray" data-reveal-item>
               <div className="w-12 h-12 bg-ivory rounded-md flex items-center justify-center text-navy mb-5 border border-warm-gray">
                 <Truck className="w-6 h-6" />
               </div>
@@ -124,7 +123,6 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <CTASection />
     </div>
   );
 }

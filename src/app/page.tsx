@@ -3,7 +3,6 @@ import CompanyIntro from '@/components/sections/CompanyIntro';
 import ProductPortfolio from '@/components/sections/ProductPortfolio';
 import IndustriesSection from '@/components/sections/IndustriesSection';
 import CapabilitiesSection from '@/components/sections/CapabilitiesSection';
-import CTASection from '@/components/sections/CTASection';
 
 export default function HomePage() {
   return (
@@ -13,7 +12,6 @@ export default function HomePage() {
       <CompanyIntro />
       <IndustriesSection />
       <CapabilitiesSection />
-      <CTASection />
     </>
   );
 }

@@ -5,7 +5,6 @@ import { industries } from '@/data/industries';
 import { getAsset } from '@/data/assets';
 import { getProductBySlug } from '@/data/products';
 import Container from '@/components/ui/Container';
-import CTASection from '@/components/sections/CTASection';
 import EditorialIntro from '@/components/sections/EditorialIntro';
 import {
   Wheat,
@@ -45,7 +44,7 @@ export default function IndustriesPage() {
       {/* Industries List */}
       <section className="py-20 bg-ivory">
         <Container>
-          <div className="space-y-12">
+          <div className="space-y-12" data-reveal-group>
             {industries.map((ind) => {
               const Icon = iconMap[ind.iconName] || Building2;
               const asset = getAsset(ind.imageKey);
@@ -54,6 +53,7 @@ export default function IndustriesPage() {
                   key={ind.slug}
                   id={ind.slug}
                   className="bg-white border border-warm-gray p-8 rounded-lg scroll-mt-24 shadow-xs"
+                  data-reveal-item
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div className="lg:col-span-5 space-y-4">
@@ -106,7 +106,6 @@ export default function IndustriesPage() {
         </Container>
       </section>
 
-      <CTASection />
     </div>
   );
 }

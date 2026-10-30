@@ -9,8 +9,8 @@ export default function ProductPortfolio() {
     <section className="bg-white border-b border-warm-gray py-16 sm:py-24 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="mb-12 flex flex-col justify-between gap-6 border-b border-navy pb-6 sm:flex-row sm:items-end">
-          <div>
-            <p className="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-steel">01 / Product range</p>
+          <div data-reveal="heading">
+            <p className="mb-3 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-steel">Product range</p>
             <h2 className="max-w-xl text-3xl font-medium tracking-[-0.04em] text-navy sm:text-5xl">
               Materials for movement.
             </h2>
@@ -20,7 +20,7 @@ export default function ProductPortfolio() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 xl:grid-cols-4" data-reveal-group>
           {products.map((product) => {
             const asset = getAsset(product.imageKey);
 

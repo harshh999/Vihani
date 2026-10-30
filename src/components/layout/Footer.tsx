@@ -6,6 +6,7 @@ import {
   footerIndustryLinks,
   footerProductLinks,
 } from '@/data/navigation';
+import CTASection from '@/components/sections/CTASection';
 
 const currentYear = 2026;
 
@@ -14,7 +15,8 @@ const footerLinkClass =
 
 export default function Footer() {
   return (
-    <footer className="border-t border-navy-light/40 bg-navy text-white" role="contentinfo">
+    <footer className="sticky bottom-0 z-0 shrink-0 border-t border-navy-light/40 bg-navy text-white" role="contentinfo">
+      <CTASection />
       <div className="mx-auto max-w-7xl px-4 pb-5 pt-7 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.9fr_0.8fr_1.1fr] lg:gap-6">
           <div className="space-y-4">
@@ -41,7 +43,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <FooterLinkGroup heading="Products" items={footerProductLinks} />
+          <div><FooterLinkGroup heading="Products" items={footerProductLinks} /></div>
 
           <nav aria-label="Explore">
             <h2 className="mb-4 !text-xs !leading-4 font-semibold uppercase tracking-wider text-warm-gray">

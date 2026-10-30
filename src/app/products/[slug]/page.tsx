@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { products, getProductBySlug } from '@/data/products';
 import { getAsset } from '@/data/assets';
 import Container from '@/components/ui/Container';
-import CTASection from '@/components/sections/CTASection';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface Props {
@@ -61,9 +60,9 @@ export default async function ProductDetailPage({ params }: Props) {
       {/* Main Detail Section */}
       <section className="py-12 lg:py-16 bg-ivory">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start" data-reveal-group>
             {/* Left: Product Image */}
-            <div className="lg:col-span-5">
+            <div className="lg:col-span-5" data-reveal-item>
               <div className="bg-white border border-warm-gray p-3 rounded-lg">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-warm-gray-light">
                   <Image
@@ -82,7 +81,7 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
 
             {/* Right: Technical Info */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6" data-reveal-item>
               <div className="text-xs font-semibold uppercase tracking-[0.2em] text-steel">
                 {product.category}
               </div>
@@ -150,7 +149,6 @@ export default async function ProductDetailPage({ params }: Props) {
         </Container>
       </section>
 
-      <CTASection />
     </div>
   );
 }

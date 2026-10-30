@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ScrollAnimations from '@/components/animations/ScrollAnimations';
 import { company } from '@/data/company';
 
 const geistSans = Geist({
@@ -54,7 +55,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <Header />
-        <main className="flex-1" id="main-content">
+        <ScrollAnimations />
+        <main className="relative z-10 flex-1" id="main-content">
           {children}
         </main>
         <Footer />

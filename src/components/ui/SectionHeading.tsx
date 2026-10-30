@@ -20,7 +20,7 @@ export default function SectionHeading({
         className,
       )}
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-navy">
+      <h2 data-reveal="heading" className="text-3xl md:text-4xl font-bold text-navy">
         {title}
       </h2>
 
@@ -35,6 +35,7 @@ export default function SectionHeading({
 
       {subtitle && (
         <p
+          data-reveal="paragraph"
           className={cn(
             'text-lg text-steel mt-4 max-w-2xl',
             align === 'center' && 'mx-auto',

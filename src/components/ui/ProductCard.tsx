@@ -17,6 +17,7 @@ export default function ProductCard({
   return (
     <a
       href={`/products/${product.slug}`}
+      data-reveal-item
       className={cn(
         'group block bg-white rounded-lg overflow-hidden border border-warm-gray',
         'transition-shadow duration-300 hover:shadow-md',

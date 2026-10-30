@@ -5,7 +5,6 @@ import Container from '@/components/ui/Container';
 import EditorialIntro from '@/components/sections/EditorialIntro';
 import SectionHeading from '@/components/ui/SectionHeading';
 import ProductCard from '@/components/ui/ProductCard';
-import CTASection from '@/components/sections/CTASection';
 
 export const metadata: Metadata = {
   title: 'Products Catalogue',
@@ -33,7 +32,7 @@ export default function ProductsPage() {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-reveal-group>
             {products.map((product) => (
               <ProductCard key={product.slug} product={product} />
             ))}
@@ -41,7 +40,6 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      <CTASection />
     </div>
   );
 }

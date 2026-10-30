@@ -26,9 +26,9 @@ function ContactContent() {
       {/* Main Content */}
       <section className="py-20 bg-ivory">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start" data-reveal-group>
             {/* Left Info Column */}
-            <div className="lg:col-span-5 space-y-8">
+            <div className="lg:col-span-5 space-y-8" data-reveal-item>
               <div className="bg-white border border-warm-gray p-8 rounded-lg shadow-xs space-y-6">
                 <h2 className="text-xl font-bold text-navy border-b border-warm-gray pb-4">
                   Direct Inquiries
@@ -95,7 +95,7 @@ function ContactContent() {
             </div>
 
             {/* Right Form Column */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7" data-reveal-item>
               <QuoteForm initialProductSlug={preselectedProduct} />
             </div>
           </div>

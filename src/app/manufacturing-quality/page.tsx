@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Container from '@/components/ui/Container';
 import SectionHeading from '@/components/ui/SectionHeading';
-import CTASection from '@/components/sections/CTASection';
 import { assets } from '@/data/assets';
 import EditorialIntro from '@/components/sections/EditorialIntro';
 import {
@@ -31,7 +30,7 @@ export default function ManufacturingQualityPage() {
       {/* Philosophy */}
       <section className="py-20 bg-white">
         <Container>
-          <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div className="max-w-3xl mx-auto text-center space-y-6" data-reveal="heading">
             <h2 className="text-3xl font-bold text-navy">
               Quality Driven by Industrial Reality
             </h2>
@@ -40,7 +39,7 @@ export default function ManufacturingQualityPage() {
             </p>
           </div>
 
-          <div className="relative aspect-[2/1] max-w-5xl mx-auto mt-12 rounded-xl overflow-hidden border border-warm-gray">
+          <div data-reveal="image" className="relative aspect-[2/1] max-w-5xl mx-auto mt-12 rounded-xl overflow-hidden border border-warm-gray">
             <Image
               src={assets.manufacturing.src}
               alt={assets.manufacturing.alt}
@@ -50,8 +49,8 @@ export default function ManufacturingQualityPage() {
             />
           </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 bg-ivory rounded-lg border border-warm-gray space-y-4">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8" data-reveal-group>
+            <div className="p-6 bg-ivory rounded-lg border border-warm-gray space-y-4" data-reveal-item>
               <div className="w-10 h-10 rounded-md bg-white border border-warm-gray flex items-center justify-center text-navy">
                 <Microscope className="w-5 h-5" />
               </div>
@@ -61,7 +60,7 @@ export default function ManufacturingQualityPage() {
               </p>
             </div>
 
-            <div className="p-6 bg-ivory rounded-lg border border-warm-gray space-y-4">
+            <div className="p-6 bg-ivory rounded-lg border border-warm-gray space-y-4" data-reveal-item>
               <div className="w-10 h-10 rounded-md bg-white border border-warm-gray flex items-center justify-center text-navy">
                 <Scale className="w-5 h-5" />
               </div>
@@ -71,7 +70,7 @@ export default function ManufacturingQualityPage() {
               </p>
             </div>
 
-            <div className="p-6 bg-ivory rounded-lg border border-warm-gray space-y-4">
+            <div className="p-6 bg-ivory rounded-lg border border-warm-gray space-y-4" data-reveal-item>
               <div className="w-10 h-10 rounded-md bg-white border border-warm-gray flex items-center justify-center text-navy">
                 <ShieldAlert className="w-5 h-5" />
               </div>
@@ -153,7 +152,6 @@ export default function ManufacturingQualityPage() {
         </Container>
       </section>
 
-      <CTASection />
     </div>
   );
 }
