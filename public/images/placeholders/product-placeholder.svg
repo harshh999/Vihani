@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" fill="none">
+  <rect width="600" height="450" fill="#F3F0EC"/>
+  <rect x="50" y="50" width="500" height="350" fill="#E8E4DF" rx="4"/>
+  <g transform="translate(220, 150)">
+    <rect width="160" height="120" fill="#D1CDC7" rx="4"/>
+    <path d="M40 100L80 60L120 100" stroke="#94A3B8" stroke-width="2.5" fill="none"/>
+    <circle cx="110" cy="50" r="12" fill="#94A3B8" opacity="0.5"/>
+  </g>
+  <text x="300" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#94A3B8">Product Image Placeholder</text>
+  <text x="300" y="332" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8">Replace with authentic product photography</text>
+</svg>
+

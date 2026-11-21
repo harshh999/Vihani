@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f8f6f1"/><stop offset="1" stop-color="#dfe4e6"/></linearGradient>
+    <pattern id="weave" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 4h8M4 0v8" stroke="#c7cdd0" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <path d="M0 560h1200" stroke="#cbd1d2" stroke-width="2"/>
+  <ellipse cx="760" cy="558" rx="330" ry="30" fill="#b9c0c2" opacity=".45"/>
+  <g transform="translate(560 125)">
+    <path d="M30 125 300 110l30 315-280 12z" fill="#fff" stroke="#243754" stroke-width="4"/>
+    <path d="m30 125 270-15 30 315-280 12z" fill="url(#weave)" opacity=".55"/>
+    <path d="M70 130V28c0-25 46-25 46 0v102M245 120V18c0-25 46-25 46 0v102" fill="none" stroke="#243754" stroke-width="12" stroke-linecap="round"/>
+    <path d="M126 110c0-58 110-58 110 0" fill="#f3f4f2" stroke="#243754" stroke-width="4"/>
+    <path d="M138 425h92l-15 42h-62z" fill="#e1e4e3" stroke="#243754" stroke-width="3"/>
+  </g>
+  <g transform="translate(170 310) scale(.7)">
+    <path d="M30 125 300 110l30 315-280 12z" fill="#fff" stroke="#243754" stroke-width="4"/>
+    <path d="m30 125 270-15 30 315-280 12z" fill="url(#weave)" opacity=".55"/>
+    <path d="M70 130V28c0-25 46-25 46 0v102M245 120V18c0-25 46-25 46 0v102" fill="none" stroke="#243754" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>
